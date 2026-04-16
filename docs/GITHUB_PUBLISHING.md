@@ -22,7 +22,7 @@ Comprehensive Splitwise CLI and agent-friendly skill wrapper with API key and OA
 
 ## Suggested About section
 
-Public, sanitized Splitwise integration for Codex, Claude Code, other terminal agents, and plain shell workflows. Supports API key auth, OAuth2, full documented endpoint coverage, and raw helpers for advanced payloads.
+Splitwise integration for Codex, Claude Code, other terminal agents, and plain shell workflows. Supports API key auth, OAuth2, full documented endpoint coverage, and raw helpers for advanced payloads.
 
 ## Suggested initial release
 
@@ -39,7 +39,7 @@ Public, sanitized Splitwise integration for Codex, Claude Code, other terminal a
 ```markdown
 ## Highlights
 
-- Added a public, sanitized Splitwise CLI and skill wrapper for Codex, Claude Code, and terminal workflows
+- Added a Splitwise CLI and skill wrapper for Codex, Claude Code, and terminal workflows
 - Supports both personal API key auth and OAuth2
 - Covers users, groups, friends, expenses, comments, notifications, currencies, and categories
 - Includes raw `api-get` and `api-post` helpers for future-proofing
@@ -50,14 +50,9 @@ Public, sanitized Splitwise integration for Codex, Claude Code, other terminal a
 - Quick-start README
 - Authentication guide
 - Detailed command reference
-- Privacy and sanitization notes
+- Privacy notes
 - Release checklist
 - Example JSON payloads
-
-## Notes
-
-- No personal account data, tokens, or private examples are included
-- Token and auth-session files are gitignored by default
 ```
 
 ## Suggested first push flow

@@ -1,6 +1,6 @@
-# Privacy and Sanitization
+# Privacy Notes
 
-This repository is intentionally prepared for public release.
+This document covers privacy-sensitive data handling for contributors and maintainers.
 
 ## What should never be committed
 

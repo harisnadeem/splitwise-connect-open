@@ -1,6 +1,6 @@
 # splitwise-connect-open
 
-A public, sanitized Splitwise CLI and agent-friendly skill wrapper for Splitwise.
+A Splitwise CLI and agent-friendly skill wrapper for Splitwise.
 
 It supports both personal API key auth and OAuth2, covers the full documented Splitwise API surface, and includes raw passthrough helpers for endpoints or payloads that may evolve over time.
 
@@ -15,13 +15,6 @@ Use this repo if you want a one-stop Splitwise integration that can:
 - handle OAuth token persistence and refresh
 - stay reliable behind Cloudflare by using `cloudscraper`
 
-This repo is designed to be safe to publish:
-
-- no personal names, emails, IDs, balances, or friend lists
-- no committed tokens or auth session files
-- no hardcoded secrets
-- examples use placeholders only
-
 ## Repository layout
 
 - `SKILL.md`: optional skill file for agent frameworks that support `SKILL.md`
@@ -30,8 +23,8 @@ This repo is designed to be safe to publish:
 - `references/api-coverage.md`: endpoint coverage map
 - `docs/AUTHENTICATION.md`: API key and OAuth setup
 - `docs/COMMANDS.md`: detailed command guide
-- `docs/RELEASE.md`: public release checklist
-- `docs/PRIVACY.md`: sanitization and publishing notes
+- `docs/RELEASE.md`: maintenance release checklist
+- `docs/PRIVACY.md`: privacy handling notes
 - `examples/`: example JSON payloads for common operations
 
 ## Features
@@ -176,7 +169,7 @@ python3 scripts/splitwise_connect.py api-post \
 
 - Authentication guide: `docs/AUTHENTICATION.md`
 - Command reference: `docs/COMMANDS.md`
-- Privacy and sanitization notes: `docs/PRIVACY.md`
+- Privacy notes: `docs/PRIVACY.md`
 - Release checklist: `docs/RELEASE.md`
 
 ## Notes on Cloudflare

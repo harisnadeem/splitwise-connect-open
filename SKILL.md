@@ -8,13 +8,6 @@ compatibility: Works in any agent or terminal environment that supports Python a
 
 Use this skill when you want one place to work with Splitwise from chat or from the terminal.
 
-This public version is sanitized for open-source use:
-
-- No personal account IDs
-- No names, emails, friend lists, or balances
-- No token files committed
-- No secrets hardcoded anywhere
-
 ## What this skill covers
 
 This CLI maps to every documented Splitwise API area:
