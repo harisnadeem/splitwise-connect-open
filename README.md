@@ -1,6 +1,6 @@
 # splitwise-connect-open
 
-A public, sanitized Splitwise skill and CLI for Zo Computer.
+A public, sanitized Splitwise CLI and agent-friendly skill wrapper for Splitwise.
 
 It supports both personal API key auth and OAuth2, covers the full documented Splitwise API surface, and includes raw passthrough helpers for endpoints or payloads that may evolve over time.
 
@@ -24,7 +24,7 @@ This repo is designed to be safe to publish:
 
 ## Repository layout
 
-- `SKILL.md`: Zo skill entrypoint and quick-start instructions
+- `SKILL.md`: optional skill file for agent frameworks that support `SKILL.md`
 - `scripts/splitwise_connect.py`: main CLI
 - `scripts/requirements.txt`: Python dependency list
 - `references/api-coverage.md`: endpoint coverage map
@@ -62,6 +62,17 @@ This repo is designed to be safe to publish:
 - one of:
   - personal API key
   - OAuth client ID and client secret
+
+## Agent compatibility
+
+This repo is intended to work well in:
+
+- Codex
+- Claude Code
+- other terminal-based AI agents
+- plain shell workflows with no AI tool at all
+
+The core interface is the Python CLI in `scripts/splitwise_connect.py`. The `SKILL.md` file is optional metadata, not a runtime dependency.
 
 ## Installation
 

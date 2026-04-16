@@ -4,7 +4,7 @@
 
 This repository is intended to stay:
 
-- easy to use from Zo or a terminal
+- easy to use from Codex, Claude Code, other agents, or a plain terminal
 - aligned with the public Splitwise API
 - free of personal account data
 - safe to publish

@@ -1,7 +1,7 @@
 ---
 name: splitwise-connect-open
 description: Comprehensive Splitwise skill for API key or OAuth2 auth, full endpoint coverage, and generic helpers for account, friends, groups, expenses, comments, notifications, currencies, and categories.
-compatibility: Created for Zo Computer
+compatibility: Works in any agent or terminal environment that supports Python and environment variables.
 ---
 
 # Splitwise Connect Open
@@ -74,8 +74,8 @@ Splitwise is fronted by Cloudflare. In practice, standard Python HTTP clients ca
 - `scripts/splitwise_connect.py`
 - `scripts/requirements.txt`
 - `.gitignore`
-- Token file default: `/home/workspace/Skills/splitwise-connect-open/splitwise_token.json`
-- Auth session default: `/home/workspace/Skills/splitwise-connect-open/splitwise_auth_session.json`
+- Token file default: repository-local `splitwise_token.json`
+- Auth session default: repository-local `splitwise_auth_session.json`
 
 ## Setup
 
@@ -85,13 +85,13 @@ Then choose one auth mode.
 
 ### Option A: Personal API key
 
-Add this secret in Zo:
+Set this environment variable:
 
 - `SPLITWISE_API_KEY`
 
 ### Option B: OAuth2
 
-Add these secrets in Zo:
+Set these environment variables:
 
 - `SPLITWISE_OAUTH_CLIENT_ID`
 - `SPLITWISE_OAUTH_CLIENT_SECRET`
@@ -99,7 +99,7 @@ Add these secrets in Zo:
 ## Install dependency
 
 ```bash
-pip install -r /home/workspace/Skills/splitwise-connect-open/scripts/requirements.txt
+pip install -r scripts/requirements.txt
 ```
 
 If your Python environment blocks global installs, use a virtual environment instead:
@@ -107,7 +107,7 @@ If your Python environment blocks global installs, use a virtual environment ins
 ```bash
 python3 -m venv .venv
 . .venv/bin/activate
-pip install -r /home/workspace/Skills/splitwise-connect-open/scripts/requirements.txt
+pip install -r scripts/requirements.txt
 ```
 
 ## Core usage
@@ -115,19 +115,19 @@ pip install -r /home/workspace/Skills/splitwise-connect-open/scripts/requirement
 Show help:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py --help
+python3 scripts/splitwise_connect.py --help
 ```
 
 Check auth:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py check-auth
+python3 scripts/splitwise_connect.py check-auth
 ```
 
 Force JSON output:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py --json get-current-user
+python3 scripts/splitwise_connect.py --json get-current-user
 ```
 
 ## OAuth examples
@@ -135,21 +135,21 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Generate auth URL:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py auth-url \
+python3 scripts/splitwise_connect.py auth-url \
   --redirect-uri "https://example.com/callback"
 ```
 
 Exchange full callback URL:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py exchange-callback \
+python3 scripts/splitwise_connect.py exchange-callback \
   --callback-url "https://example.com/callback?code=...&state=..."
 ```
 
 Refresh stored token:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py refresh
+python3 scripts/splitwise_connect.py refresh
 ```
 
 ## Command reference
@@ -159,19 +159,19 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Current user:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py get-current-user
+python3 scripts/splitwise_connect.py get-current-user
 ```
 
 Another user:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py get-user --id 12345
+python3 scripts/splitwise_connect.py get-user --id 12345
 ```
 
 Update a user:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py update-user \
+python3 scripts/splitwise_connect.py update-user \
   --id 12345 \
   --first-name "Ada" \
   --last-name "Lovelace" \
@@ -181,7 +181,7 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Or with JSON:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py update-user \
+python3 scripts/splitwise_connect.py update-user \
   --id 12345 \
   --body-json '{"locale":"en","default_currency":"EUR"}'
 ```
@@ -191,19 +191,19 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 List groups:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py list-groups
+python3 scripts/splitwise_connect.py list-groups
 ```
 
 Get a group:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py get-group --id 321
+python3 scripts/splitwise_connect.py get-group --id 321
 ```
 
 Create a group:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py create-group \
+python3 scripts/splitwise_connect.py create-group \
   --name "Apartment 2026" \
   --group-type home \
   --simplify-by-default \
@@ -214,18 +214,18 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Delete and restore:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py delete-group --id 321
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py undelete-group --id 321
+python3 scripts/splitwise_connect.py delete-group --id 321
+python3 scripts/splitwise_connect.py undelete-group --id 321
 ```
 
 Add or remove users:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py add-user-to-group \
+python3 scripts/splitwise_connect.py add-user-to-group \
   --group-id 321 \
   --user-id 5823
 
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py remove-user-from-group \
+python3 scripts/splitwise_connect.py remove-user-from-group \
   --group-id 321 \
   --user-id 5823
 ```
@@ -235,19 +235,19 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 List friends:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py list-friends
+python3 scripts/splitwise_connect.py list-friends
 ```
 
 Get one friend:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py get-friend --id 5823
+python3 scripts/splitwise_connect.py get-friend --id 5823
 ```
 
 Create a single friend:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py create-friend \
+python3 scripts/splitwise_connect.py create-friend \
   --user-email "ada@example.com" \
   --user-first-name "Ada" \
   --user-last-name "Lovelace"
@@ -256,7 +256,7 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Create multiple friends:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py create-friends \
+python3 scripts/splitwise_connect.py create-friends \
   --friend "email=alan@example.org,first_name=Alan,last_name=Turing" \
   --friend "email=existing@example.org"
 ```
@@ -264,7 +264,7 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Delete a friendship:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py delete-friend --id 5823
+python3 scripts/splitwise_connect.py delete-friend --id 5823
 ```
 
 ### Expenses
@@ -272,13 +272,13 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 List expenses:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py list-expenses --limit 20
+python3 scripts/splitwise_connect.py list-expenses --limit 20
 ```
 
 Filter by friend, group, or time:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py list-expenses \
+python3 scripts/splitwise_connect.py list-expenses \
   --friend-id 5823 \
   --dated-after "2026-01-01T00:00:00Z" \
   --limit 50
@@ -287,13 +287,13 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Get one expense:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py get-expense --id 51023
+python3 scripts/splitwise_connect.py get-expense --id 51023
 ```
 
 Create an expense with explicit shares:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py create-expense \
+python3 scripts/splitwise_connect.py create-expense \
   --cost 25.00 \
   --description "Lunch" \
   --currency-code USD \
@@ -304,7 +304,7 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Create an equal group split:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py create-expense \
+python3 scripts/splitwise_connect.py create-expense \
   --group-id 321 \
   --split-equally \
   --cost 120 \
@@ -315,7 +315,7 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Create with raw JSON:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py create-expense \
+python3 scripts/splitwise_connect.py create-expense \
   --body-json '{
     "cost":"79.50",
     "description":"Groceries",
@@ -332,7 +332,7 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Update an expense:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py update-expense \
+python3 scripts/splitwise_connect.py update-expense \
   --id 51023 \
   --description "Groceries and snacks" \
   --details "Added drinks too"
@@ -341,7 +341,7 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Or overwrite shares on update:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py update-expense \
+python3 scripts/splitwise_connect.py update-expense \
   --id 51023 \
   --share "user_id=1001,paid_share=60,owed_share=20" \
   --share "user_id=1002,paid_share=0,owed_share=40"
@@ -350,8 +350,8 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Delete and restore:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py delete-expense --id 51023
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py undelete-expense --id 51023
+python3 scripts/splitwise_connect.py delete-expense --id 51023
+python3 scripts/splitwise_connect.py undelete-expense --id 51023
 ```
 
 ### Comments
@@ -359,13 +359,13 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 List comments:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py get-comments --expense-id 51023
+python3 scripts/splitwise_connect.py get-comments --expense-id 51023
 ```
 
 Create a comment:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py create-comment \
+python3 scripts/splitwise_connect.py create-comment \
   --expense-id 51023 \
   --content "Does this include delivery?"
 ```
@@ -373,7 +373,7 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Delete a comment:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py delete-comment --id 79800950
+python3 scripts/splitwise_connect.py delete-comment --id 79800950
 ```
 
 ### Notifications
@@ -381,13 +381,13 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Get notifications:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py get-notifications --limit 25
+python3 scripts/splitwise_connect.py get-notifications --limit 25
 ```
 
 Get only recent notifications:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py get-notifications \
+python3 scripts/splitwise_connect.py get-notifications \
   --updated-after "2026-01-01T00:00:00Z"
 ```
 
@@ -396,13 +396,13 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Supported currencies:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py list-currencies
+python3 scripts/splitwise_connect.py list-currencies
 ```
 
 Supported categories:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py list-categories
+python3 scripts/splitwise_connect.py list-categories
 ```
 
 ## Raw helpers
@@ -412,7 +412,7 @@ These are useful when Splitwise adds a field or endpoint and you do not want to 
 Raw GET:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py api-get \
+python3 scripts/splitwise_connect.py api-get \
   --path /get_expenses \
   --body-json '{"limit":10,"offset":0}'
 ```
@@ -420,7 +420,7 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Raw POST as form data:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py api-post \
+python3 scripts/splitwise_connect.py api-post \
   --path /create_comment \
   --body-json '{"expense_id":51023,"content":"Looks good"}'
 ```
@@ -428,7 +428,7 @@ python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.
 Raw POST as JSON:
 
 ```bash
-python3 /home/workspace/Skills/splitwise-connect-open/scripts/splitwise_connect.py api-post \
+python3 scripts/splitwise_connect.py api-post \
   --path /create_friend \
   --content-type json \
   --body-json '{"user_email":"ada@example.com","user_first_name":"Ada","user_last_name":"Lovelace"}'

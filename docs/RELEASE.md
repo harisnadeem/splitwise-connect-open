@@ -18,7 +18,7 @@ git status --ignored --short
 3. Run a manual scrub for private markers:
 
 ```bash
-rg -n -i "haris|hafsa|@|splitwise_token|access_token|refresh_token|client_secret|api_key" .
+rg -n -i "example|sample|@|splitwise_token|access_token|refresh_token|client_secret|api_key" .
 ```
 
 4. Inspect the output and make sure any matches are placeholders, code identifiers, or ignored local files only.
@@ -43,7 +43,7 @@ rg -n -i "haris|hafsa|@|splitwise_token|access_token|refresh_token|client_secret
 
 ## Suggested GitHub repo description
 
-Comprehensive Splitwise CLI and Zo skill with API key and OAuth2 auth, full endpoint coverage, and Cloudflare-friendly requests.
+Comprehensive Splitwise CLI and agent-friendly skill wrapper with API key and OAuth2 auth, full endpoint coverage, and Cloudflare-friendly requests.
 
 ## Suggested release tags
 
@@ -51,5 +51,6 @@ Comprehensive Splitwise CLI and Zo skill with API key and OAuth2 auth, full endp
 - `python`
 - `cli`
 - `oauth2`
-- `zo-computer`
+- `codex`
+- `claude-code`
 - `personal-finance`

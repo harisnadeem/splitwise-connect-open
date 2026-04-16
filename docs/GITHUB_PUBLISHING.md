@@ -6,7 +6,7 @@
 
 ## Suggested short description
 
-Comprehensive Splitwise CLI and Zo skill with API key and OAuth2 auth, full endpoint coverage, and Cloudflare-friendly requests.
+Comprehensive Splitwise CLI and agent-friendly skill wrapper with API key and OAuth2 auth, full endpoint coverage, and Cloudflare-friendly requests.
 
 ## Suggested topics
 
@@ -16,12 +16,13 @@ Comprehensive Splitwise CLI and Zo skill with API key and OAuth2 auth, full endp
 - `oauth2`
 - `api-client`
 - `cloudscraper`
-- `zo-computer`
+- `codex`
+- `claude-code`
 - `personal-finance`
 
 ## Suggested About section
 
-Public, sanitized Splitwise integration for Zo Computer and terminal workflows. Supports API key auth, OAuth2, full documented endpoint coverage, and raw helpers for advanced payloads.
+Public, sanitized Splitwise integration for Codex, Claude Code, other terminal agents, and plain shell workflows. Supports API key auth, OAuth2, full documented endpoint coverage, and raw helpers for advanced payloads.
 
 ## Suggested initial release
 
@@ -38,7 +39,7 @@ Public, sanitized Splitwise integration for Zo Computer and terminal workflows. 
 ```markdown
 ## Highlights
 
-- Added a public, sanitized Splitwise skill and CLI for Zo Computer
+- Added a public, sanitized Splitwise CLI and skill wrapper for Codex, Claude Code, and terminal workflows
 - Supports both personal API key auth and OAuth2
 - Covers users, groups, friends, expenses, comments, notifications, currencies, and categories
 - Includes raw `api-get` and `api-post` helpers for future-proofing
@@ -62,7 +63,7 @@ Public, sanitized Splitwise integration for Zo Computer and terminal workflows. 
 ## Suggested first push flow
 
 ```bash
-cd /home/workspace/Skills/splitwise-connect-open
+cd splitwise-connect-open
 git remote add origin <your-github-repo-url>
 git push -u origin main
 git tag v0.1.0
