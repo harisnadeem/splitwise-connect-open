@@ -1,0 +1,7 @@
+splitwise_token.json
+splitwise_auth_session.json
+__pycache__/
+scripts/__pycache__/
+.venv/
+.pytest_cache/
+.DS_Store

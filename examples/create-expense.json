@@ -1,0 +1,11 @@
+{
+  "cost": "1200",
+  "description": "Groceries",
+  "currency_code": "PKR",
+  "users__0__user_id": "111",
+  "users__0__paid_share": "1200",
+  "users__0__owed_share": "600",
+  "users__1__user_id": "222",
+  "users__1__paid_share": "0",
+  "users__1__owed_share": "600"
+}

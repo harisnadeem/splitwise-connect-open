@@ -1,0 +1,9 @@
+{
+  "name": "Trip Fund",
+  "group_type": "trip",
+  "simplify_by_default": "true",
+  "users__0__email": "person@example.com",
+  "users__0__first_name": "First",
+  "users__0__last_name": "Last",
+  "users__1__user_id": "5823"
+}
